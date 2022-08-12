@@ -2,7 +2,8 @@
   "name": "introduction_to_nodejs",
   "version": "1.0.0",
   "scripts": {
-    "start": "serve static"
+    "start": "serve static",
+    "serve": "node server.js"
   },
   "devDependencies": {
     "serve": "^11.2.0"
