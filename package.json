@@ -1,0 +1,10 @@
+{
+  "name": "introduction_to_nodejs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve static"
+  },
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
+}
