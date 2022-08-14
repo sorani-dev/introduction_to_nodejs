@@ -27,6 +27,7 @@ lib-cov
 coverage
 *.lcov
 
+node_modules*
 # nyc test coverage
 .nyc_output
 
@@ -44,6 +45,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+mock-srv/node_modules/
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -142,3 +144,6 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+
+node_modules*
