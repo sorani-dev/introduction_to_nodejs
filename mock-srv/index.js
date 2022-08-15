@@ -10,7 +10,7 @@ const fastify = require("fastify")
 const app = fastify()
 
 
- function build(opts) {
+function build(opts) {
   const app = fastify()
   
   /* app.addHook('onSend', (req, repy, done) => {
@@ -25,11 +25,11 @@ true,
  * Registering an `onSend` hook in the root encapsulation context.
  */
 app.addHook("onSend", async function (request, reply) {
-	reply.headers({
-		"Cache-Control": "no-store",
-		Pragma: "no-cache",
-		'Access-Control-Allow-Origin': '*',
-	});
+  reply.headers({
+    "Cache-Control": "no-store",
+    Pragma: "no-cache",
+    'Access-Control-Allow-Origin': '*',
+  });
 });
 
    /* app.register(require('@fastify/middie'), {
@@ -101,7 +101,6 @@ app.get("/", async (request, reply) => {
     })*/
     
     //. app.use(require('cors')())
-  
   app.get(
     "/hello",
     {
@@ -116,7 +115,7 @@ app.get("/", async (request, reply) => {
       return { hello: name || "no name!" };
     }
   );
-
+  
   return app;
 }
 
