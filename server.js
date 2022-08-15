@@ -24,11 +24,10 @@ const server = createServer((req, res) => {
   } else {
     error = true
   }
- 
+  
   if (error) {
     res.statusCode = 404
     res.end(JSON.stringify({error: true, message: 'not Found'}))
-  }
-  
-    })
+  } })
+
 server.listen(3000)
