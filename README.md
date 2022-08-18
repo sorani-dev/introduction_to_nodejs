@@ -64,6 +64,8 @@ Install the dependancies with: `npm install`
   - fastify cors with: `npm install @fastify/cors^7`, 
   - serve with: `npm install --save-dev serve^13`.
   
+ Rename the `env.example` to `.env`.
+  
 ### Running the app
 
 - to run in development mode: run `npm dev` for the server and `npm start` for the static front-end website

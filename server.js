@@ -1,5 +1,8 @@
 'use strict' const { createServer } = require('http')
 
+// if (process.env.NODE_ENV !== 'production') {
+require('dotenv').config({ override:true })
+// }
 
 // Declare constants
 // Categories
@@ -9,7 +12,7 @@ const CONFECTIONERY = 'confectionery'
 // The port to listen on
 const PORT = process.env.PORT || 3000
 
-console.log(process.env)
+// console.log(process.env)
 
 // Declare variables
 // Initial data
@@ -89,7 +92,7 @@ const server = createServer((req, res) => {
   const currentRoute = req.url.slice(1)
   const routeExists = Object.keys(data).includes(currentRoute)
   // console.log('currentRoute', currentRoute)
-  console.log(data, Object.keys(data), routeExists)
+  // console.log(data, Object.keys(data), routeExists)
   
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*')   res.setHeader('Content-Type', 'application/json')
@@ -128,5 +131,5 @@ const server = createServer((req, res) => {
   } })
 
 server.listen(PORT, () => {
-  console.log(`Server is listening on port: ${PORT}`);
-});
+  console.log(`Server is listening on port: ${PORT}`)
+})

@@ -5,7 +5,7 @@ const cors = require('@fastify/cors')
 const fastify = require("fastify")
 
 function build(opts) {
-  const app = fastify({logger: true})
+  const app = fastify(opts)
 
 /**
  * Registering an `onSend` hook in the root encapsulation context.
@@ -78,21 +78,6 @@ app.get("/", async (request, reply) => {
   });
 */
 
-  app.get(
-    "/hello",
-    {
-      query: {
-        name: {
-          type: "string"
-        }
-      }
-    },
-    async (request, reply) => {
-      const { name } = request.query;
-      return { hello: name || "no name!" };
-    }
-  );
-  
   return app;
 }
 
