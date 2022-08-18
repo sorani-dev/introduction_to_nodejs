@@ -86,13 +86,13 @@ const addData = (postData, category)  => {
 */
 const server = createServer((req, res) => {
   let error = false
-  
+
   const currentUrl = req.url
   // route without prefix by /
   const currentRoute = req.url.slice(1)
   const routeExists = Object.keys(data).includes(currentRoute)
-  // console.log('currentRoute', currentRoute)
-  // console.log(data, Object.keys(data), routeExists)
+  console.log('currentRoute', currentRoute)
+  console.log(data, Object.keys(data), routeExists)
   
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*')   res.setHeader('Content-Type', 'application/json')
@@ -110,16 +110,15 @@ const server = createServer((req, res) => {
     } else {
       error = true
     }
-  // PORT urls
+  // POST urls
   } else if (req.method === 'POST' && routeExists) {
-      console.log("request is POST")
-        getPostData(req, (postData) => {
-        
-        const newData = addData(postData, currentRoute)
-        console.log(newData)
-        console.log(JSON.stringify(newData))
-        res.end(JSON.stringify(newData))
-        })
+    console.log("request is POST")
+    getPostData(req, (postData) => {
+      const newData = addData(postData, currentRoute)
+      console.log(newData)
+      console.log(JSON.stringify(newData))
+      res.end(JSON.stringify(newData))
+    })
   } else {
     error = true
   }
@@ -127,7 +126,7 @@ const server = createServer((req, res) => {
   // No route found
   if (error) {
     res.statusCode = 404
-    res.end(JSON.stringify({error: true, message: 'not Found'}))
+    res.end(JSON.stringify({errors: { status: 404, title: 'Resource not found', detail: 'Could not find a matching route or the required resource for the given url. Please check the spelling or it may no exist anymore.'}}))
   } })
 
 server.listen(PORT, () => {
