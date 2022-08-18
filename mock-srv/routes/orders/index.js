@@ -38,4 +38,10 @@ module.exports = async function (fastify, opts) {
       }
     }
   )
+
+  fastify.post('/:id', async (request) => {
+    const { id } = request.params
+    fastify.addOrder(id, request.body.amount)
+    return {ok: true}
+  })
 }
