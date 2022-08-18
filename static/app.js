@@ -72,10 +72,9 @@ let socket = null
 const realtimeOrders = (category) => {
   const url = `${WS_API}/orders/${category}`
   // console.log(url)
-  if (socket) socket.close()
-  socket = new WebSocket(url)
-  // console.log(socket, typeof socket)
-  socket.addEventListener('message', ({ data }) => {
+  if (socket === null) {     socket = new WebSocket(url)   } else {     socket.send(JSON.stringify({cmd: 'update-category', payload: { category }}))   }
+
+socket.addEventListener('message', ({ data }) => {
     try {
       const { id, total } = JSON.parse(data)
       // console.log("messqge data", data)
