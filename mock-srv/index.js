@@ -3,6 +3,7 @@ const path = require('path')
 const AutoLoad = require('@fastify/autoload')
 const cors = require('@fastify/cors')
 const fastify = require("fastify")
+const websocket = require('@fastify/websocket')
 
 function build(opts) {
   const app = fastify(opts)
@@ -32,6 +33,12 @@ app.register(cors, {
     // Generate an error on other origins, disabling access
     cb(new Error("Not allowed"), false)
   }*/
+})
+
+app.register(websocket).after(err => {
+  if (err) {
+    throw err
+  }
 })
 
 // Configuring CORS Asynchronously
