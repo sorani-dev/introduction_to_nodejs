@@ -49,4 +49,23 @@ Limit date for upgrading for verified certificate.
 - **Mon. 19 sept. 2022**:
     Audit mode expires.
 
- 
+## How to use
+
+### installation
+
+Install the dependancies with: `npm install`
+- if you use Node version 14 or above you can change the package.json dependancies and install
+  - fastify with `npm install fastify`
+  - fastify cors with: `npm install @fastify/cors`, 
+  - serve with: `npm install serve`.
+  
+- if you use a Node.js version below 14 use the following vrrsions in package.json:
+  - fastify with `npm install fastify@^3`
+  - fastify cors with: `npm install @fastify/cors^7`, 
+  - serve with: `npm install --save-dev serve^13`.
+  
+### Running the app
+
+- to run in development mode: run `npm dev` for the server and `npm start` for the static front-end website
+- to run in production mode: run `npm start:serve` for the server and `npm start` for the static front-end website
+

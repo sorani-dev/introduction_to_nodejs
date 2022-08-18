@@ -23,16 +23,23 @@ const populateAllProducts = async (category = null) => {
 const populateProducts = async (category= null, method = 'GET', payload = {name: '', rrp: '', info: ''}) => {
   const products = document.querySelector('#products' )
   // console.log(products)
-   // console.log("fetch")
-   // console.log(category === undefined)
-   const url = category === null || typeof category === 'undefined' ? API : `${API}/${category}` 
+  // console.log("fetch")
+  // console.log(category === undefined)
+  const url = category === null || typeof category === 'undefined' ? API : `${API}/${category}` 
   // console.log(`${API}/${category}`)
-  console.log(url)
+  // console.log(url)
   products.innerHTML = ''
+  
   try {
     // sending METHOD
     const send = method === 'GET' ? {} : {
-      headers: {'Content-Type': 'application/json'},       body: JSON.stringify(payload)     } 
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json', 
+        mode: 'cors'
+      },
+      body: JSON.stringify(payload)     }
+    // console.log('method', method, 'payload', payload, 'send', send, { method, ...send }) 
     // console.log('before fetch')
     const res = await fetch(url, { method, ...send })
     // console.log('after fetch')
@@ -68,7 +75,7 @@ category.addEventListener('input', async ({ target }) => {
   }*/
   // await populateAllProducts(target.value)
   add.style.display = 'block'
-    await populateProducts(target.value) })
+  await populateProducts(target.value) })
 
 // add product
 add.addEventListener('submit', async (e) => {

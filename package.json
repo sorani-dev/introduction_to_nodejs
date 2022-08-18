@@ -4,7 +4,8 @@
   "scripts": {
     "start": "serve static",
     "dev": "nodemon mock-srv/index.js",
-    "server": "node server.js",
+    "start:serve": "node mock-srv/index.js",
+    "server": "PORT=5000 node server.js",
     "node:v": "node test.js"
   },
   "devDependencies": {
@@ -14,9 +15,7 @@
   },
   "dependencies": {
     "@fastify/autoload": "^5.2.0",
-    "@fastify/cors": "^8.1.0",
-    "@fastify/middie": "^8.0.0",
-    "cors": "^2.8.5",
+    "@fastify/cors": "^7.0.0",
     "fastify": "^3.29.1"
   }
 }
