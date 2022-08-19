@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "CLI for Introduction to Nodejs",
   "dependencies": {
-    "got": "^11.8.5"
+    "got": "^11.8.5",
+    "minimist": "^1.2.6"
   },
   "author": "Simon Cateau",
   "license": "MIT",
@@ -13,6 +14,9 @@
     "cmd": "./cmd.js"
   },
   "scripts": {
-    "start": "node bin/cmd.js A2 35"
+    "help": "node bin/cmd.js",
+    "base": "node bin/cmd.js A2 35",
+    "parse-short-cmd-flags": "node bin/cmd.js A1 -n 5",
+    "parse-long-cmd-flags": "node bin/cmd.js  --amount 15 A2"
   }
 }
